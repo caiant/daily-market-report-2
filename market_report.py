@@ -61,16 +61,35 @@ def get_market_data():
     return df
 
 def format_html_table(df):
-    html = """
-    <html>
-    <head>
-        <style>
-            table {{ width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; }} /* Changed %% to % */
-            th, td {{ border: 1px solid #dddddd; text-align: left; padding: 8px; }}
-            th {{ background-color: #4CAF50; color: white; }}
-            tr:nth-child(even) {{ background-color: #f2f2f2; }}
-            tr:hover {{ background-color: #ddd; }}
-        </style>
+    table_style = """
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+    """
+    
+    table_html = df.to_html(index=False, escape=False)
+    return table_style + table_html
+
     </head>
     <body>
         <h2>📊 Daily Market Report - {date}</h2>
