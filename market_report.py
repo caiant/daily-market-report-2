@@ -90,27 +90,6 @@ def format_html_table(df):
     table_html = df.to_html(index=False, escape=False)
     return table_style + table_html
 
-    <head>
-    <body>
-        <h2> Daily Market Report - {date}</h2>
-        <table>
-            <tr>
-                <th>Asset</th>
-                <th>Last Price</th>
-                <th>Change</th>
-                <th>Change %</th>
-            </tr>
-    .format(date=datetime.now().strftime('%Y-%m-%d'))
-
-    for _, row in df.iterrows():
-        html += "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>".format(*row)
-
-    html += """
-        </table>
-    </body>
-    </html>
-    """
-    return html
 
 df = get_market_data()
 html_table = format_html_table(df)
