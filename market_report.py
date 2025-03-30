@@ -100,7 +100,6 @@ df = get_market_data()
 html_table = format_html_table(df)
 print(html_table)
 
-import yagmail
 from datetime import datetime
 
 def send_email():
