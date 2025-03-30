@@ -100,7 +100,7 @@ def format_html_table(df):
                 <th>Change</th>
                 <th>Change %</th>
             </tr>
-    """.format(date=datetime.now().strftime('%Y-%m-%d'))
+    .format(date=datetime.now().strftime('%Y-%m-%d'))
 
     for _, row in df.iterrows():
         html += "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>".format(*row)
