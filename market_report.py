@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/12vG3wjrwiMx2FfqUQlTJlKQlfaGKGXBE
 """
 
-pip install schedule
-
-pip install yfinance pandas
 
 import yfinance as yf
 import pandas as pd
