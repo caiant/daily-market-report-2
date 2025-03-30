@@ -37,7 +37,7 @@ tickers = {
     "USD/JPY (Yen)": "JPY=X",
     "EUR/USD (Euro)": "EURUSD=X",
     "GBP/USD (Pound)": "GBPUSD=X",
-    "Crude Oil (WTI)": "CL=F",
+    "Crude Oil (WTI)": "WTI",
     "UK 10Y Bond": "GB10Y.GB",
     "German 10Y Bond": "DE10Y.DE"
 }
