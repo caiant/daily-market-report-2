@@ -15,7 +15,7 @@ import yfinance as yf
 import pandas as pd
 import schedule
 import time
-import smtplib
+import yagmail
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
@@ -100,26 +100,25 @@ df = get_market_data()
 html_table = format_html_table(df)
 print(html_table)
 
-# Send Email with HTML Table
+import yagmail
+from datetime import datetime
+
 def send_email():
     df = get_market_data()
     report_html = format_html_table(df)
 
     # Email setup
-    msg = MIMEMultipart()
-    msg["From"] = EMAIL_ADDRESS
-    msg["To"] = TO_EMAIL
-    msg["Subject"] = f"Daily Market Report - {datetime.now().strftime('%Y-%m-%d')}"
-    msg.attach(MIMEText(report_html, "html"))
+    subject = f"Daily Market Report - {datetime.now().strftime('%Y-%m-%d')}"
+    body = report_html  # HTML content
 
-    # Send email
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.sendmail(EMAIL_ADDRESS, TO_EMAIL, msg.as_string())
+        # Initialize yagmail with your credentials
+        yag = yagmail.SMTP(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        
+        # Send email
+        yag.send(to=TO_EMAIL, subject=subject, contents=body)
         print("✅ Email sent successfully!")
+
     except Exception as e:
         print(f"❌ Error sending email: {e}")
 
-send_email()
