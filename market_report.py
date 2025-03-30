@@ -92,7 +92,7 @@ def format_html_table(df):
 
     </head>
     <body>
-        <h2>📊 Daily Market Report - {date}</h2>
+        <h2> Daily Market Report - {date}</h2>
         <table>
             <tr>
                 <th>Asset</th>
