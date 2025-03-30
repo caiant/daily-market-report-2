@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: '3.10'
       - name: Install Dependencies
-        run: pip install yfinance pandas yagmail
+        run: pip install yfinance pandas schedule yagmail
       - name: Run Script
         run: python market_report.py
       
