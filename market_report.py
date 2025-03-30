@@ -90,7 +90,7 @@ def format_html_table(df):
     table_html = df.to_html(index=False, escape=False)
     return table_style + table_html
 
-    </head>
+    <head>
     <body>
         <h2> Daily Market Report - {date}</h2>
         <table>
