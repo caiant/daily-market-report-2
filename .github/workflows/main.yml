@@ -2,7 +2,7 @@ name: Daily Market Report
 on:
   workflow_dispatch:  # Allows manual trigger
   schedule:
-    - cron: '30 11 * * *'  # 7:30 AM EST (convert to UTC)
+    - cron: '30 16 * * *'  # 7:30 AM EST (convert to UTC)
 jobs:
   run_script:
     runs-on: ubuntu-latest
